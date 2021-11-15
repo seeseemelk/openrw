@@ -33,7 +33,7 @@
 #include "loaders/LoaderGXT.hpp"
 #include "platform/FileIndex.hpp"
 
-GameData::GameData(Logger* log, const rwfs::path& path)
+GameData::GameData(Logger* log, const std::filesystem::path& path)
     : datpath(path), logger(log) {
     dffLoader.setTextureLookupCallback(
         [&](const std::string& texture, const std::string&) {
@@ -41,7 +41,11 @@ GameData::GameData(Logger* log, const rwfs::path& path)
         });
 }
 
-void GameData::load() {
+bool GameData::load() {
+    if (!isValidGameDirectory()) {
+        return false;
+    }
+
     index.indexTree(datpath);
 
     loadIMG("models/gta3.img");
@@ -78,6 +82,8 @@ void GameData::load() {
 
     // Load ped groups after IDEs so they can resolve
     loadPedGroups("data/pedgrp.dat");
+
+    return true;
 }
 
 void GameData::loadLevelFile(const std::string& path) {
@@ -759,13 +765,11 @@ float GameData::getWaveHeightAt(const glm::vec3& ws) const {
            WATER_HEIGHT;
 }
 
-bool GameData::isValidGameDirectory(const rwfs::path& path) {
-    rwfs::error_code ec;
-    if (!rwfs::is_directory(path, ec)) {
-        std::cerr << "first test failed\n";
+bool GameData::isValidGameDirectory() const {
+    std::error_code ec;
+    if (!std::filesystem::is_directory(datpath, ec)) {
         return false;
     }
 
-    LoaderIMG i;
-    return i.load(path / "models/gta3.img");
+    return !ec;
 }

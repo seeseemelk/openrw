@@ -1,5 +1,5 @@
 # OpenRW
-[![IRC freenode #openrw](http://img.shields.io/freenode/%23openrw.png)](https://webchat.freenode.net/?channels=%23openrw)
+[![IRC libera.chat #openrw](https://raster.shields.io/badge/libera.chat-%23openrw-blue)](https://web.libera.chat/?channels=#openrw)
 
 ## About
 
@@ -12,7 +12,7 @@ this it will not be possible to play.
 
 Windows | Linux | macOS | coverage
 ---| --- | ---  | ---
-[![Build status](https://ci.appveyor.com/api/projects/status/k33qf9ssrja6ckx8/branch/master?svg=true)](https://ci.appveyor.com/project/rwengine/openrw/branch/master) | [![Build Status](https://travis-ci.com/rwengine/openrw.svg?branch=master)](https://travis-ci.com/rwengine/openrw) | [![Build Status](https://travis-ci.com/rwengine/openrw.svg?branch=master)](https://travis-ci.com/rwengine/openrw) | [![codecov](https://codecov.io/gh/rwengine/openrw/branch/master/graph/badge.svg)](https://codecov.io/gh/rwengine/openrw)
+[![Build status](https://ci.appveyor.com/api/projects/status/k33qf9ssrja6ckx8/branch/master?svg=true)](https://ci.appveyor.com/project/rwengine/openrw/branch/master) | [![Build Status](https://app.travis-ci.com/rwengine/openrw.svg?branch=master)](https://app.travis-ci.com/rwengine/openrw) | [![Build Status](https://app.travis-ci.com/rwengine/openrw.svg?branch=master)](https://app.travis-ci.com/rwengine/openrw) | [![codecov](https://codecov.io/gh/rwengine/openrw/branch/master/graph/badge.svg)](https://codecov.io/gh/rwengine/openrw)
 
 
 ## Links

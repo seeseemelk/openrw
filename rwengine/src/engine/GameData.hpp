@@ -43,7 +43,7 @@ class SCMFile;
  */
 class GameData {
 private:
-    rwfs::path datpath;
+    std::filesystem::path datpath;
     std::string splash;
     std::string currenttextureslot;
 
@@ -55,7 +55,7 @@ public:
      * ctor
      * @param path Path to the root of the game data.
      */
-    GameData(Logger* log, const rwfs::path& path);
+    GameData(Logger* log, const std::filesystem::path& path);
     ~GameData() = default;
 
     GameWorld* engine = nullptr;
@@ -70,7 +70,7 @@ public:
     /**
      * Returns the game data path
      */
-    const rwfs::path& getDataPath() const {
+    const std::filesystem::path& getDataPath() const {
         return datpath;
     }
 
@@ -112,7 +112,7 @@ public:
     void loadWaterpro(const std::string& path);
     void loadWater(const std::string& path);
 
-    void load();
+    bool load();
 
     /**
      * Loads model, placement, models and textures from a level file
@@ -359,10 +359,11 @@ public:
 
     GameTexts texts;
 
+private:
     /**
      * Determines whether the given path is a valid game directory.
      */
-    static bool isValidGameDirectory(const rwfs::path& path);
+    bool isValidGameDirectory() const;
 };
 
 #endif
